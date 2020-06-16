@@ -17,7 +17,7 @@ check_return_code() {
 #fi
 
 exit_with_message() {
-    printf "EXITING  Error message is:   %s" $1
+    printf "EXITING  Error message is:   %s\n" $1
     exit 1
 }
 
