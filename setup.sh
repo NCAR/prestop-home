@@ -9,15 +9,21 @@ SCRIPT_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null||echo $0))  #
 . $SCRIPT_DIR/script-support.sh
 
 
+CURRENT_TIMESTAMP=`date +%F_%T`
 
-[ ! -f ~/.bashrc ] || mv ~/.bashrc ~/.bashrc-original
-check_return_code "Error moving original ~/.bashrc to ~/.bashrc-original"
+[ ! -f ~/.bashrc ] || mv ~/.bashrc ~/.bashrc.${CURRENT_TIMESTAMP}
+check_return_code "Error moving original ~/.bashrc to ~/.bashrc.${CURRENT_TIMESTAMP}"
 
-cp ./.bashrc ~/.bashrc
+cp $SCRIPT_DIR/bashrc ~/.bashrc
 check_return_code "Error installing new ~/.bashrc"
 
+[ ! -f ~/.ssh-help.sh ] || mv ~/.ssh-help.sh ~/.ssh-help.sh.${CURRENT_TIMESTAMP}
+check_return_code "Error moving original ~/.ssh-help to ~/.ssh-help.${CURRENT_TIMESTAMP}"
 
-printf "Setup of ~prestop completed succesfully\n"
+cp $SCRIPT_DIR/ssh-help.sh ~/.ssh-help.sh
+check_return_code "Error installing new ~/.ssh-help.sh"
 
-printf "To use your new environment, run:\n"
+printf "\nSetup of ~prestop completed succesfully\n"
+
+printf "\nTo use your new environment, run:\n"
 printf ". ~/.bashrc\n"
