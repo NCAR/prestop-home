@@ -137,8 +137,8 @@ fi
 
 
 
-function paul_cvs () { command cvs -d :pserver:prestop@cvs:/cvs "$@";  }
-function pcvs () { command cvs -d :pserver:prestop@cvs:/cvs "$@";  }
+function paul_cvs () { command cvs -d :pserver:prestop@cvs.rap.ucar.edu:/cvs "$@";  }
+function pcvs () { command cvs -d :pserver:prestop@cvs.rap.ucar.edu:/cvs "$@";  }
 
 
 function catw {
