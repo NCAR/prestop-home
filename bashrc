@@ -9,7 +9,11 @@
 export PATH=/rap/bin${PATH:+:$PATH}
 
 # add ConfigMaster to PYTHONPATH
-export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}/home/prestop/git/ConfigMaster
+export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/ConfigMaster
+
+# for CVS
+export CVSROOT=:pserver:prestop@cvs.rap.ucar.edu:/cvs
+
 
 
 # If not running interactively, don't do anything
@@ -19,7 +23,7 @@ case $- in
 esac
 
 
-echo "setting prestop's environment from /home/prestop/.bashrc"
+echo "setting prestop's environment from ${HOME}/.bashrc"
 
 
 export EDITOR="emacs -nw"
@@ -133,17 +137,40 @@ fi
 function paul_cvs () { command cvs -d :pserver:prestop@cvs:/cvs "$@";  }
 function pcvs () { command cvs -d :pserver:prestop@cvs:/cvs "$@";  }
 
-function serch ()
-{
-    command find $1 -name "*.h" -o -name "*.hh" | xargs egrep -n $2 | more
-}
-
-function serc ()
-{
-    command find $1 -name "*.[c|h]" -o -name "*.cc" -o -name "*.hh" | xargs egrep -n $2 | more
-    }
 
 function catw {
     cat `which $1`
+    }
+    
+# search .c .cc .h and .hh files
+serc () { command find $1 -name "*.[c|h]" -o -name "*.cc" -o -name "*.hh" | \
+          xargs egrep -n $2 | more; }
+
+# search just headers      
+serch () { command find $1 -name "*.h" -o -name "*.hh" | \
+          xargs egrep -n $2 | more; }
+
+# search all files
+sercall () { command find $1 -name "*" | xargs egrep -n $2 | more; }
+
+# search .py files
+sercpy () { command find $1 -name "*.[py]" | xargs egrep -n $2 | more; }
+
+psg () { command ps axww | sed -n "1p; \|sed .*/$@/|d; /$@/p";  }
+pslg () { command ps alxww | sed -n "1p; \|sed .*/$@/|d; /$@/p";  }
+psug () { command ps auxww | sed -n "1p; \|sed .*/$@/|d; /$@/p";  }
+
+
+
+function strerror ()
+{
+printf "[possible perl errno message]\n";
+perl -e '$!='${1}'; print "$!\n";';
+printf "[possible errno messages from /usr/include/*errno*.h]\n";
+find /usr/include -name '*errno*.h' -print0 | xargs -0 grep '^[[:space:]]*#define[[:space:]]\+[[:upper:]_]\+[[:space:]]\+'${1}'[[:space:]]';
+printf "[possible /usr/include/sysexits.h exit codes]\n";
+grep '^[[:space:]]*#define[[:space:]]\+[[:upper:]_]\+[[:space:]]\+'${1}'[[:space:]]' /usr/include/sysexi
+ts.h
 }
+
 
