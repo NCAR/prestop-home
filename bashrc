@@ -174,3 +174,6 @@ ts.h
 }
 
 
+# create some ssh helper functions
+. ssh-help.sh
+
