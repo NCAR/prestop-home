@@ -176,6 +176,11 @@ grep '^[[:space:]]*#define[[:space:]]\+[[:upper:]_]\+[[:space:]]\+'${1}'[[:space
 ts.h
 }
 
+# git helper functions
+function git_update_submodules()
+{
+git submodule foreach --recursive git pull origin master
+}
 
 # create some ssh helper functions
 . ~/.ssh-help.sh
