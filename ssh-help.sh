@@ -55,6 +55,10 @@ function atec-dataops4() {
   ssh atec-dataops4.rap.ucar.edu
 }
 
+function atec-dataops3() {
+  ssh atec-dataops3.rap.ucar.edu
+}
+
 function deere {
     ssh  deere.rap.ucar.edu
 }
