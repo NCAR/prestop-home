@@ -8,6 +8,11 @@
 # Add rap binaries
 export PATH=/rap/bin${PATH:+:$PATH}
 
+# TODO: check if these dirs exist before adding them?  I think they only exist on mac
+export PATH=/Users/prestop/bin${PATH:+:$PATH}
+export PATH=/opt/local/bin${PATH:+:$PATH}
+
+
 # add ConfigMaster to PYTHONPATH
 export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/ConfigMaster
 
