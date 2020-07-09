@@ -2,16 +2,39 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# figure out what kind of linux this is
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+# echo Installing bashrc for ${machine}
+
+
 # Add anaconda to the path
-#export PATH=/usr/local/anaconda3/bin${PATH:+:$PATH}
+# export PATH=/usr/local/anaconda3/bin${PATH:+:$PATH}
 
 # Add rap binaries
 export PATH=/rap/bin${PATH:+:$PATH}
 
 # TODO: check if these dirs exist before adding them?  I think they only exist on mac
-export PATH=/Users/prestop/bin${PATH:+:$PATH}
-export PATH=/opt/local/bin${PATH:+:$PATH}
+if [ $machine = "Mac" ]
+then
+  echo "doing Mac specific stuff..."
+  export PATH=/Users/prestop/bin${PATH:+:$PATH}
+  export PATH=/opt/local/bin${PATH:+:$PATH}
 
+  export PATH=/usr/local/krb5/bin${PATH:+:$PATH}
+  export PATH=/usr/local/ossh/bin${PATH:+:$PATH}
+
+  function locate() {
+      mdfind -name $1
+      }
+fi
 
 # add ConfigMaster to PYTHONPATH
 export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/ConfigMaster
@@ -167,6 +190,7 @@ sercpy () { command find $1 -name "*.[py]" | xargs egrep -n $2 | more; }
 psg () { command ps axww | sed -n "1p; \|sed .*/$@/|d; /$@/p";  }
 pslg () { command ps alxww | sed -n "1p; \|sed .*/$@/|d; /$@/p";  }
 psug () { command ps auxww | sed -n "1p; \|sed .*/$@/|d; /$@/p";  }
+
 
 
 
