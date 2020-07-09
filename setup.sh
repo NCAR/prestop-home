@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf "Setting up ~prestop environment\n"
+printf "Setting up ${HOME} environment\n"
 
 # find location of this running script
 SCRIPT_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null||echo $0))  # https://stackoverflow.com/a/34208365/
@@ -23,7 +23,7 @@ check_return_code "Error moving original ~/.ssh-help to ~/.ssh-help.${CURRENT_TI
 cp $SCRIPT_DIR/ssh-help.sh ~/.ssh-help.sh
 check_return_code "Error installing new ~/.ssh-help.sh"
 
-printf "\nSetup of ~prestop completed succesfully\n"
+printf "\nSetup of ${HOME} completed succesfully\n"
 
 printf "\nTo use your new environment, run:\n"
 printf ". ~/.bashrc\n"
