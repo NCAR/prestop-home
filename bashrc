@@ -21,7 +21,6 @@ esac
 # Add rap binaries
 export PATH=/rap/bin${PATH:+:$PATH}
 
-# TODO: check if these dirs exist before adding them?  I think they only exist on mac
 if [ $machine = "Mac" ]
 then
   echo "doing Mac specific stuff..."
