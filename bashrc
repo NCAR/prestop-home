@@ -210,6 +210,10 @@ function git_update_submodules()
 git submodule foreach --recursive git pull origin master
 }
 
+# find github name of ucar staff.
+ghuser() { curl -s https://people.api.ucar.edu/persons?username=${1:?Username?} | perl -0777 -MJSON -e '$t=from_json(<>); print "$t->[0]->{githubUser}","\n";' ;}
+
+
 # create some ssh helper functions
 . ~/.ssh-help.sh
 
