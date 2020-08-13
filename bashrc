@@ -50,7 +50,20 @@ then
   function locate() {
       mdfind -name $1
       }
+else
+  # if we don't already have _cvs defined, try to define it.
+  if  ! declare -F | grep _cvs >& /dev/null; then
+    if [ -f /usr/share/bash-completion/completions/cvs ]; then
+        . /usr/share/bash-completion/completions/cvs
+    fi
+  fi
+  # do we have _cvs function now
+  if declare -F | grep _cvs >& /dev/null; then
+    complete -o default -F _cvs cvs
+  fi
 fi
+
+
 
 # add ConfigMaster to PYTHONPATH
 export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/ConfigMaster
