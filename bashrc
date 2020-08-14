@@ -53,8 +53,13 @@ then
 else
   # if we don't already have _cvs defined, try to define it.
   if  ! declare -F | grep _cvs >& /dev/null; then
-    if [ -f /usr/share/bash-completion/completions/cvs ]; then
-        . /usr/share/bash-completion/completions/cvs
+      if [ -f /usr/share/bash-completion/completions/cvs ]; then
+	  #printf "running /usr/share/bash-completion/completions/cvs\n"
+
+	  # I dunno wny this seems to throw up errors sometimes...  so just redirect to /dev/null
+          . /usr/share/bash-completion/completions/cvs >& /dev/null
+
+	  #printf "done\n"
     fi
   fi
   # do we have _cvs function now
