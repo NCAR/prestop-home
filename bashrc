@@ -17,16 +17,16 @@ cd ~/git/prestop-home
 git pull >& /dev/null
 for f in bashrc  script-support.sh  ssh-help.sh
 do
-  if diff -q $f ~/.${f} >& /dev/null; then
+  if ! diff -q $f ~/.${f} >& /dev/null; then
       echo "$f has changed - installing update..."
       install_file $f ~/.${f}
-      if "$f" = "bashrc"; then
+      if [ "$f" = "bashrc" ]; then
         changes=1
       fi
   fi
 done
 
-if $changes; then
+if [ $changes = 1 ]; then
     printf "bashrc changed.  Please rerun by hand or exit and log back in.";
 fi
 
