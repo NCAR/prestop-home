@@ -28,6 +28,8 @@ done
 
 if [ $changes = 1 ]; then
     printf "bashrc changed.  Please rerun by hand or exit and log back in.";
+    printf "Exiting..."
+    return
 fi
 
 # figure out what kind of linux this is
