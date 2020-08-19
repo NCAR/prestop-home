@@ -28,8 +28,8 @@ do
 done
 
 if [ $changes = 1 ]; then
-    printf "bashrc changed.  Please rerun by hand or exit and log back in.";
-    printf "Exiting..."
+    printf "bashrc changed.  Please rerun by hand or exit and log back in.\n";
+    printf "Exiting...\n"
     return
 fi
 
