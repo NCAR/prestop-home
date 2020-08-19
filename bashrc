@@ -16,7 +16,7 @@ changes=0
 git_dir=~/git/prestop-home
 cd $git_dir
 git pull >& /dev/null
-for f in bashrc  script-support.sh  ssh-help.sh
+for f in bashrc  script-support.sh  ssh-help.sh needed_env_vars.RAP.sh
 do
   if ! diff -q $git_dir/$f ~/.${f} >& /dev/null; then
       echo "~/.${f} is out of date - installing update..."
