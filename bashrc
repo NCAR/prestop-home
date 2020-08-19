@@ -82,7 +82,11 @@ then
       mdfind -name $1
       }
 else
-  # if we don't already have _cvs defined, try to define it.
+
+  ######  NON-MAC section  ##
+  ############################
+
+# if we don't already have _cvs defined, try to define it.
   if  ! declare -F | grep _cvs >& /dev/null; then
       if [ -f /usr/share/bash-completion/completions/cvs ]; then
 	  #printf "running /usr/share/bash-completion/completions/cvs\n"
@@ -282,4 +286,7 @@ ghuser() { curl -s https://people.api.ucar.edu/persons?username=${1:?Username?} 
 
 # create some ssh helper functions
 . ~/.ssh-help.sh
+
+# set environment for RAP build system
+. ~/.needed_env_vars.RAP.sh
 
