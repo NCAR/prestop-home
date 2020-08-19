@@ -13,13 +13,14 @@ fi
 
 # First thing we do is check if the environment is out of date, and update if it is.
 changes=0
-cd ~/git/prestop-home
+git_dir=~/git/prestop-home
+cd $git_dir
 git pull >& /dev/null
 for f in bashrc  script-support.sh  ssh-help.sh
 do
-  if ! diff -q $f ~/.${f} >& /dev/null; then
-      echo "$f has changed - installing update..."
-      install_file $f ~/.${f}
+  if ! diff -q $git_dir/$f ~/.${f} >& /dev/null; then
+      echo "~/.${f} is out of date - installing update..."
+      install_file $git_dir/$f ~/.${f}
       if [ "$f" = "bashrc" ]; then
         changes=1
       fi
