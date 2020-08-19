@@ -2,6 +2,34 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+if [ -f ~/.script-support.sh ]; then
+    . ~/.script-support.sh
+else
+    echo "Error Can't find ~/.script-support when processing $0."
+    echo "Exiting."
+    return
+fi
+
+
+# First thing we do is check if the environment is out of date, and update if it is.
+changes=0
+cd ~/git/prestop-home
+git pull >& /dev/null
+for f in bashrc  script-support.sh  ssh-help.sh
+do
+  if diff -q $f ~/.${f} >& /dev/null; then
+      echo "$f has changed - installing update..."
+      install_file $f ~/.${f}
+      if "$f" = "bashrc"; then
+        changes=1
+      fi
+  fi
+done
+
+if $changes; then
+    printf "bashrc changed.  Please rerun by hand or exit and log back in.";
+fi
+
 # figure out what kind of linux this is
 unameOut="$(uname -s)"
 case "${unameOut}" in
