@@ -127,6 +127,10 @@ function ncardas2 {
     ssh  ncardas2.rap.ucar.edu
 }
 
+function ncardas3 {
+    ssh  ncardas3.rap.ucar.edu
+}
+
 function deere-y {
     ssh -Y deere.rap.ucar.edu
 }
