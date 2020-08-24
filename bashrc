@@ -66,6 +66,9 @@ path_prepend() {
 # Add anaconda to the path
 # export PATH=/usr/local/anaconda3/bin${PATH:+:$PATH}
 
+# Add opt git to the path
+export PATH=$(path_prepend $PATH /opt/git/bin)
+
 # Add rap binaries
 export PATH=/rap/bin${PATH:+:$PATH}
 
