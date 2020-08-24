@@ -45,23 +45,6 @@ esac
 
 # echo Installing bashrc for ${machine}
 
-# helper functions to smartly add to path:
-# usage: PATH=$(path_append $PATH /my/bin)
-
-path_append() {
-    if [ -d "$2" ] && [[ ":$1:" != *":$2:"* ]]; then
-        echo "${1:+"$1:"}$2"
-    else
-        echo "$1"
-    fi
-}
-path_prepend() {
-    if [ -d "$2" ] && [[ ":$1:" != *":$2:"* ]]; then
-        echo "$2${1:+":$1"}"
-    else
-    	echo "$1"
-    fi
-}
 
 # Add anaconda to the path
 # export PATH=/usr/local/anaconda3/bin${PATH:+:$PATH}

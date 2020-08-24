@@ -34,3 +34,25 @@ install_file() {
     cp $1 $2
     check_return_code "Error installing new $2"
 }
+    
+#########################################################################
+# Usage: helper functions to smartly add to path
+# Example: PATH=$(path_append $PATH /my/bin)
+    
+path_append() {
+    if [ -d "$2" ] && [[ ":$1:" != *":$2:"* ]]; then
+        echo "${1:+"$1:"}$2"
+    else
+        echo "$1"
+    fi
+}
+
+path_prepend() {
+    if [ -d "$2" ] && [[ ":$1:" != *":$2:"* ]]; then
+        echo "$2${1:+":$1"}"
+    else
+    	echo "$1"
+    fi
+}
+
+#########################################################################
