@@ -1,9 +1,9 @@
 
 # default ssh
-/usr/bin/ssh
+# /usr/bin/ssh
 
 # ssh for DOD HPC 
-/usr/local/ossh/bin/ssh
+# /usr/local/ossh/bin/ssh
 
 function kinit_atec() {
   kinit prestop@HPCMP.HPC.MIL
