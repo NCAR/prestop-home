@@ -5,207 +5,207 @@
 # ssh for DOD HPC 
 # /usr/local/ossh/bin/ssh
 
-function kinit_atec() {
+kinit_atec() {
   kinit prestop@HPCMP.HPC.MIL
 }
 
-function gordon() {
+gordon() {
   /usr/local/ossh/bin/ssh prestop@gordon13.navydsrc.hpc.mil
 }
 
-function gaffney() {
+gaffney() {
   /usr/local/ossh/bin/ssh prestop@gaffney.navydsrc.hpc.mil
 }
 
-function excalibur() {
+excalibur() {
   /usr/local/ossh/bin/ssh atec4dwx@excalibur-4dwx.arl.hpc.mil
 }
 
-function excalibur-test() {
+excalibur-test() {
   /usr/local/ossh/bin/ssh atectest@excalibur-4dwx.arl.hpc.mil
 }
 
-function centennial-prestop() {
+centennial-prestop() {
   /usr/local/ossh/bin/ssh prestop@centennial.arl.hpc.mil
 }
 
-function centennial-test() {
+centennial-test() {
   /usr/local/ossh/bin/ssh atectest@centennial11.arl.hpc.mil
 }
 
-function centennial() {
+centennial() {
   /usr/local/ossh/bin/ssh atec4dwx@centennial11.arl.hpc.mil
 }
 
-function atec-exposed() {
+atec-exposed() {
   /usr/bin/ssh atec-exposed.rap.ucar.edu
 }
 
-function bmb-data() {
+bmb-data() {
   /usr/bin/ssh bigmacb-data1.rap.ucar.edu
 }
 
-function datapath1() {
+datapath1() {
   /usr/bin/ssh datapath1.rap.ucar.edu
 }
 
-function datapath2() {
+datapath2() {
   /usr/bin/ssh datapath2.rap.ucar.edu
 }
 
-function data-access() {
+data-access() {
   /usr/bin/ssh data-access.ucar.edu
 }
 
-function atec-dataops4() {
+atec-dataops4() {
   /usr/bin/ssh atec-dataops4.rap.ucar.edu
 }
 
-function atec-dataops3() {
+atec-dataops3() {
   /usr/bin/ssh atec-dataops3.rap.ucar.edu
 }
 
-function deere {
+deere() {
     /usr/bin/ssh  deere.rap.ucar.edu
 }
 
-function thyme {
+thyme() {
     /usr/bin/ssh  thyme.rap.ucar.edu
 }
 
-function fip-faa {
+fip-faa() {
     /usr/bin/ssh  fip-faa@sonbef.rap.ucar.edu
 }
 
-function cip-faa {
+cip-faa() {
     /usr/bin/ssh  cip-faa@sonbef.rap.ucar.edu
 }
 
-function fip-dev {
+fip-dev() {
     /usr/bin/ssh  fip-dev@sonbef.rap.ucar.edu
 }
 
-function cip-dev {
+cip-dev() {
     /usr/bin/ssh  cip-dev@sonbef.rap.ucar.edu
 }
 
-function curry {
+curry() {
     /usr/bin/ssh  curry.rap.ucar.edu
 }
 
-function oregano {
+oregano() {
     /usr/bin/ssh  oregano.rap.ucar.edu
 }
 
-function parsley {
+parsley() {
     /usr/bin/ssh  parsley.rap.ucar.edu
 }
 
-function sonbef {
+sonbef() {
     /usr/bin/ssh  sonbef.rap.ucar.edu
 }
 
-function khaba {
+khaba() {
     /usr/bin/ssh  khaba.rap.ucar.edu
 }
 
-function raneb {
+raneb() {
     /usr/bin/ssh  raneb.rap.ucar.edu
 }
 
-function huni {
+huni() {
     /usr/bin/ssh  huni.rap.ucar.edu
 }
 
-function floyd {
+floyd() {
     /usr/bin/ssh  floyd.rap.ucar.edu
 }
 
-function ahmose {
+ahmose() {
     /usr/bin/ssh  ahmose.rap.ucar.edu
 }
 
-function ncardas1 {
+ncardas1() {
     /usr/bin/ssh  ncardas1.rap.ucar.edu
 }
 
-function ncardas2 {
+ncardas2() {
     /usr/bin/ssh  ncardas2.rap.ucar.edu
 }
 
-function ncardas3 {
+ncardas3() {
     /usr/bin/ssh  ncardas3.rap.ucar.edu
 }
 
-function deere-y {
+deere-y() {
     /usr/bin/ssh -Y deere.rap.ucar.edu
 }
 
-function thyme-y {
+thyme-y() {
     /usr/bin/ssh -Y thyme.rap.ucar.edu
 }
 
-function fip-faa-y {
+fip-faa-y() {
     /usr/bin/ssh -Y fip-faa@sonbef.rap.ucar.edu
 }
 
-function cip-faa-y {
+cip-faa-y() {
     /usr/bin/ssh -Y cip-faa@sonbef.rap.ucar.edu
 }
 
-function fip-dev-y {
+fip-dev-y() {
     /usr/bin/ssh -Y fip-dev@sonbef.rap.ucar.edu
 }
 
-function cip-dev-y {
+cip-dev-y() {
     /usr/bin/ssh -Y cip-dev@sonbef.rap.ucar.edu
 }
 
-function curry-y {
+curry-y() {
     /usr/bin/ssh -Y curry.rap.ucar.edu
 }
 
-function oregano-y {
+oregano-y() {
     /usr/bin/ssh -Y oregano.rap.ucar.edu
 }
 
-function parsley-y {
+parsley-y() {
     /usr/bin/ssh -Y parsley.rap.ucar.edu
 }
 
-function sonbef-y {
+sonbef-y() {
     /usr/bin/ssh -Y sonbef.rap.ucar.edu
 }
 
-function khaba-y {
+khaba-y() {
     /usr/bin/ssh -Y khaba.rap.ucar.edu
 }
 
-function huni-y {
+huni-y() {
     /usr/bin/ssh -Y huni.rap.ucar.edu
 }
 
-function ahmose-y {
+ahmose-y() {
     /usr/bin/ssh -Y ahmose.rap.ucar.edu
 }
 
-function ncardas1-y {
+ncardas1-y() {
     /usr/bin/ssh -Y ncardas1.rap.ucar.edu
 }
 
-function ncardas2-y {
+ncardas2-y() {
     /usr/bin/ssh -Y ncardas2.rap.ucar.edu
 }
 
-function smac-c4 {
+smac-c4() {
     /usr/bin/ssh smac-c4-int1.rap.ucar.edu
 }
 
-function smac-c4-y {
+smac-c4-y() {
     /usr/bin/ssh -Y smac-c4-int1.rap.ucar.edu
 }
 
-function data-access {
+data-access() {
     /usr/bin/ssh data-access.ucar.edu
 }
 

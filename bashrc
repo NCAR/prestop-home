@@ -66,7 +66,7 @@ then
   # ssh for DoD is now explicitely used when calling 
   #export PATH=/usr/local/ossh/bin${PATH:+:$PATH}
 
-  function locate() {
+  locate() {
       mdfind -name $1
       }
 else
@@ -222,11 +222,11 @@ fi
 
 
 
-function paul_cvs () { command cvs -d :pserver:prestop@cvs.rap.ucar.edu:/cvs "$@";  }
-function pcvs () { command cvs -d :pserver:prestop@cvs.rap.ucar.edu:/cvs "$@";  }
+paul_cvs () { command cvs -d :pserver:prestop@cvs.rap.ucar.edu:/cvs "$@";  }
+pcvs () { command cvs -d :pserver:prestop@cvs.rap.ucar.edu:/cvs "$@";  }
 
 
-function catw {
+catw {
     cat `which $1`
     }
     
@@ -251,7 +251,7 @@ psug () { command ps auxww | sed -n "1p; \|sed .*/$@/|d; /$@/p";  }
 
 
 
-function strerror ()
+strerror ()
 {
 printf "[possible perl errno message]\n";
 perl -e '$!='${1}'; print "$!\n";';
@@ -263,7 +263,7 @@ ts.h
 }
 
 # git helper functions
-function git_update_submodules()
+git_update_submodules()
 {
 git submodule foreach --recursive git pull origin master
 }
