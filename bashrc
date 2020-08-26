@@ -62,7 +62,9 @@ then
   export PATH=/opt/local/bin${PATH:+:$PATH}
 
   export PATH=/usr/local/krb5/bin${PATH:+:$PATH}
-  export PATH=/usr/local/ossh/bin${PATH:+:$PATH}
+
+  # ssh for DoD is now explicitely used when calling 
+  #export PATH=/usr/local/ossh/bin${PATH:+:$PATH}
 
   function locate() {
       mdfind -name $1
