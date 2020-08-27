@@ -226,7 +226,7 @@ paul_cvs () { command cvs -d :pserver:prestop@cvs.rap.ucar.edu:/cvs "$@";  }
 pcvs () { command cvs -d :pserver:prestop@cvs.rap.ucar.edu:/cvs "$@";  }
 
 
-catw {
+catw() {
     cat `which $1`
     }
     
