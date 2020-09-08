@@ -56,3 +56,10 @@ path_prepend() {
 }
 
 #########################################################################
+# find location of this running script
+# usage:
+# SCRIPT_DIR=$(get_script_dir)
+get_script_dir() {
+    SCRIPT_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null||echo $0))  # https://stackoverflow.com/a/34208365/
+    echo $SCRIPT_DIR
+}
