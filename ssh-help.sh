@@ -210,3 +210,22 @@ data-access() {
 }
 
 
+ldm() {
+    runas ldm
+}
+
+fip-dev() {
+    runas fip-dev
+}
+
+cip-dev() {
+    runas cip-dev
+}
+
+iida() {
+    runas iida
+}
+
+iifa() {
+    runas iifa
+}
