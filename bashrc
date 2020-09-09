@@ -55,6 +55,11 @@ export PATH=$(path_prepend $PATH /opt/git/bin)
 # Add rap binaries
 export PATH=/rap/bin${PATH:+:$PATH}
 
+# add personal binaries
+export PATH=$HOME/rap/bin${PATH:+:$PATH}
+export PATH=$HOME/bin${PATH:+:$PATH}
+
+
 if [ $machine = "Mac" ]
 then
   echo "doing Mac specific stuff..."
