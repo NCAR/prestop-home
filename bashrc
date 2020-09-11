@@ -26,6 +26,7 @@ do
       fi
   fi
 done
+cd $HOME
 
 if [ $changes = 1 ]; then
     printf "bashrc changed.  Please rerun by hand or exit and log back in.\n";
