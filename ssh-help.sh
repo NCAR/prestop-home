@@ -53,6 +53,10 @@ datapath2() {
   /usr/bin/ssh datapath2.rap.ucar.edu
 }
 
+datapath-dev() {
+  /usr/bin/ssh datapath-dev.rap.ucar.edu
+}
+
 data-access() {
   /usr/bin/ssh data-access.ucar.edu
 }
