@@ -33,6 +33,9 @@ install_file() {
 
     cp $1 $2
     check_return_code "Error installing new $2"
+
+    chmod 740 $2
+    
 }
     
 #########################################################################
