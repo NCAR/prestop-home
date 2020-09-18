@@ -63,7 +63,6 @@ export PATH=$HOME/bin${PATH:+:$PATH}
 
 if [ $machine = "Mac" ]
 then
-  echo "doing Mac specific stuff..."
 
   # MacPorts Bash bits.  -- from SNAT
   # 2020-02-20: exec-ing Bash here breaks X11, apparently as X11 runs
@@ -79,6 +78,8 @@ then
         fi
     fi
   fi
+
+  echo "doing Mac specific stuff..."
 
 
   export PATH=/Users/prestop/bin${PATH:+:$PATH}
