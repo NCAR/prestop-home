@@ -75,6 +75,13 @@ then
   locate() {
       mdfind -name $1
       }
+
+  # get good mac ls colors
+  eval $(gdircolors)
+  ls() {
+       gls --color=auto $@
+  }
+
 else
 
   ######  NON-MAC section  ##
