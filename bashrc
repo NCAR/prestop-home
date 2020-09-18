@@ -64,6 +64,22 @@ export PATH=$HOME/bin${PATH:+:$PATH}
 if [ $machine = "Mac" ]
 then
   echo "doing Mac specific stuff..."
+
+# MacPorts Bash bits.
+# 2020-02-20: exec-ing Bash here breaks X11, apparently as X11 runs
+#   a shell to initialize various things, and macOS starts a login shell
+#   (rather than an interactive, non-login shell) by default.
+# But... moving the exec to .bash_profile doesn't help.
+# So, test if the shell is interactive prior to the exec.
+# See: https://unix.stackexchange.com/a/26782
+if [[ $- == *i* ]] ; then
+    if [ "$BASH" != "/opt/local/bin/bash" ]; then
+        if [ -x /opt/local/bin/bash ]; then
+            exec /opt/local/bin/bash
+        fi
+    fi
+fi
+
   export PATH=/Users/prestop/bin${PATH:+:$PATH}
   export PATH=/opt/local/bin${PATH:+:$PATH}
 
