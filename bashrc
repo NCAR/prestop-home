@@ -10,28 +10,32 @@ else
     return
 fi
 
+check_update=false
 
 # First thing we do is check if the environment is out of date, and update if it is.
-changes=0
-git_dir=~/git/prestop-home
-cd $git_dir
-git pull >& /dev/null
-for f in bashrc  script-support.sh  ssh-help.sh needed_env_vars.RAP.sh
-do
-  if ! diff -q $git_dir/$f ~/.${f} >& /dev/null; then
-      echo "~/.${f} is out of date - installing update..."
-      install_file $git_dir/$f ~/.${f}
-      if [ "$f" = "bashrc" ]; then
-        changes=1
-      fi
-  fi
-done
-cd $HOME
+if [ "$check_update" = true ]; then
 
-if [ $changes = 1 ]; then
-    printf "bashrc changed.  Please rerun by hand or exit and log back in.\n";
-    printf "Exiting...\n"
-    return
+    changes=0
+    git_dir=~/git/prestop-home
+    cd $git_dir
+    git pull >& /dev/null
+    for f in bashrc  script-support.sh  ssh-help.sh needed_env_vars.RAP.sh
+    do
+	if ! diff -q $git_dir/$f ~/.${f} >& /dev/null; then
+	    echo "~/.${f} is out of date - installing update..."
+	    install_file $git_dir/$f ~/.${f}
+	    if [ "$f" = "bashrc" ]; then
+		changes=1
+	    fi
+	fi
+    done
+    cd $HOME
+    
+    if [ $changes = 1 ]; then
+	printf "bashrc changed.  Please rerun by hand or exit and log back in.\n";
+	printf "Exiting...\n"
+	return
+    fi
 fi
 
 # figure out what kind of linux this is
@@ -44,7 +48,7 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
-# echo Installing bashrc for ${machine}
+echo Installing bashrc for ${machine}
 
 
 # Add anaconda to the path
@@ -61,8 +65,7 @@ export PATH=$HOME/rap/bin${PATH:+:$PATH}
 export PATH=$HOME/bin${PATH:+:$PATH}
 
 
-if [ $machine = "Mac" ]
-then
+if [ $machine = "Mac" ]; then
 
   # MacPorts Bash bits.  -- from SNAT
   # 2020-02-20: exec-ing Bash here breaks X11, apparently as X11 runs
@@ -96,9 +99,14 @@ then
 
   # get good mac ls colors
   eval $(gdircolors)
-  ls() {
-       gls --color=auto $@
-  }
+  echo "test"
+
+  fls() {
+  echo "ls"
+}
+ # ls() {
+ #      gls --color=auto $@
+ # }
 
   if [ -f  /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then 
      source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
