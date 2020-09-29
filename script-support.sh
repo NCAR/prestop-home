@@ -66,3 +66,15 @@ get_script_dir() {
     SCRIPT_DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null||echo $0))  # https://stackoverflow.com/a/34208365/
     echo $SCRIPT_DIR
 }
+
+#########################################################################
+# check if latest version of cron is installed
+# usage:
+# SCRIPT_DIR=$(get_script_dir)
+check_cron() {
+cron_file=${1:-$HOME/crontab}
+crontab -l | diff - $cron_file
+if [ $? = 0 ]; then
+	echo $cron_file matches the installed crontab
+fi
+}
