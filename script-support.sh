@@ -67,6 +67,44 @@ get_script_dir() {
     echo $SCRIPT_DIR
 }
 
+
+#########################################################################
+# simple checks from sdowdy
+
+is_session_in_script() { [ "$(ps -o comm= -p $PPID)" = "script" ] ;}      # XXX only checks one level
+is_session_in_screen() { [ -n "${WINDOW}" ] || [ -n "${TMUX_PANE}" ] ;}
+is_shell_interactive() { [ "${-%i*}" != "${-}" ] ;}
+is_shell_login()       { builtin shopt -q login_shell ;}  # XXX this is BASH specific.
+is_os_linux() { [ "$(uname -s)" = "Linux" ] ;}
+is_os_darwin() { [ "$(uname -s)" = "Darwin" ] ;}
+is_os_macos() { [ "$(uname -s)" = "Darwin" ] ;}
+
+
+
+
+####################################################################################
+###  BELOW HERE ---  Not really script support, but useful interactive functions
+####################################################################################
+
+
+#########################################################################
+# Show all the permissions up to root from a directory
+# usage:
+#  chpp ~/this/dir
+chpp () {
+    local obj objlink
+    obj="$(echo "${1:?Must specify a file or directory}" | sed -e 's-//*-/-g;\-^/$-{q;};s-/$--')" 
+    [ ! -e "${obj}" ] && { echo "ENOEXIST ${obj}"; return 1 ;}
+    [ -z "${obj%%/*}" ] || obj="$(pwd)/${obj}"
+    while [ -e "${obj}" ]; do
+        objlink="$(readlink "${obj}")"
+        stat --format "%-12A %-12U %-12G %n${objlink:+ (->${objlink})}" "${obj}"
+        [ -L "${obj}" ] && chpp "$(readlink -e ${obj})" | sed -e 's/^/  /'
+        [ "${obj}" = "/" ] && break
+        obj="${obj%/*}"; obj="${obj:-/}"
+    done
+}
+
 #########################################################################
 # check if latest version of cron is installed
 # usage:
