@@ -70,7 +70,8 @@ get_script_dir() {
 #########################################################################
 # check if latest version of cron is installed
 # usage:
-# SCRIPT_DIR=$(get_script_dir)
+# check_cron
+# check_cron ~/crontab.now
 check_cron() {
 cron_file=${1:-$HOME/crontab}
 crontab -l | diff - $cron_file
