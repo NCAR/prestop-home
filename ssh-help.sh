@@ -1,4 +1,7 @@
 
+# requires script-support.sh
+
+
 # default ssh
 # /usr/bin/ssh
 
@@ -10,31 +13,62 @@ kinit_atec() {
 }
 
 gordon() {
-  /usr/local/ossh/bin/ssh prestop@gordon13.navydsrc.hpc.mil
+if is_os_darwin; then
+    /usr/local/ossh/bin/ssh prestop@gordon13.navydsrc.hpc.mil
+else
+    /usr/bin/ssh prestop@gordon13.navydsrc.hpc.mil
+fi
+
 }
 
 gaffney() {
-  /usr/local/ossh/bin/ssh prestop@gaffney.navydsrc.hpc.mil
+if is_os_darwin; then
+  /usr/local/ossh/bin/ssh prestop@gaffney07.navydsrc.hpc.mil
+else
+  /usr/bin/ssh prestop@gaffney07.navydsrc.hpc.mil
+fi
 }
 
 excalibur() {
+if is_os_darwin; then
   /usr/local/ossh/bin/ssh atec4dwx@excalibur-4dwx.arl.hpc.mil
+else
+    /usr/bin/ssh atec4dwx@excalibur-4dwx.arl.hpc.mil
+fi
+
 }
 
 excalibur-test() {
-  /usr/local/ossh/bin/ssh atectest@excalibur-4dwx.arl.hpc.mil
+if is_os_darwin; then
+    /usr/local/ossh/bin/ssh atectest@excalibur-4dwx.arl.hpc.mil
+else
+    /usr/bin/ssh atectest@excalibur-4dwx.arl.hpc.mil
+fi
+
 }
 
 centennial-prestop() {
-  /usr/local/ossh/bin/ssh prestop@centennial.arl.hpc.mil
+if is_os_darwin; then
+   /usr/local/ossh/bin/ssh prestop@centennial.arl.hpc.mil
+else
+    /usr/bin/ssh prestop@centennial.arl.hpc.mil
+fi
 }
 
 centennial-test() {
-  /usr/local/ossh/bin/ssh atectest@centennial11.arl.hpc.mil
+if is_os_darwin; then
+   /usr/local/ossh/bin/ssh atectest@centennial11.arl.hpc.mil
+else
+    /usr/bin/ssh atectest@centennial11.arl.hpc.mil
+fi
 }
 
 centennial() {
-  /usr/local/ossh/bin/ssh atec4dwx@centennial11.arl.hpc.mil
+if is_os_darwin; then
+   /usr/local/ossh/bin/ssh atec4dwx@centennial11.arl.hpc.mil
+else
+    /usr/bin/ssh atec4dwx@centennial11.arl.hpc.mil
+fi
 }
 
 atec-exposed() {
