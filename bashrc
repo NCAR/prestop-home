@@ -48,7 +48,6 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
-echo Installing bashrc for ${machine}
 
 
 # Add anaconda to the path
@@ -150,7 +149,7 @@ case $- in
       *) return;;
 esac
 
-
+echo Installing bashrc for ${machine}
 echo "setting prestop's environment from ${HOME}/.bashrc"
 
 
