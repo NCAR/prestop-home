@@ -89,6 +89,10 @@ if [ $machine = "Mac" ]; then
 
   export PATH=/usr/local/krb5/bin${PATH:+:$PATH}
 
+
+  # ~/anaconda3/bin/
+  PATH=$(path_prepend $PATH $HOME/anaconda3/bin )
+  
   # ssh for DoD is now explicitely used when calling 
   #export PATH=/usr/local/ossh/bin${PATH:+:$PATH}
 
@@ -98,11 +102,7 @@ if [ $machine = "Mac" ]; then
 
   # get good mac ls colors
   eval $(gdircolors)
-  echo "test"
 
-  fls() {
-  echo "ls"
-}
  # ls() {
  #      gls --color=auto $@
  # }
