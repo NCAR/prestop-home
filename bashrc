@@ -56,6 +56,9 @@ esac
 # Add opt git to the path
 export PATH=$(path_prepend $PATH /opt/git/bin)
 
+# add opt python3 to the path
+export PATH=$(path_prepend $PATH /opt/python3/bin)
+
 # Add rap binaries
 export PATH=/rap/bin${PATH:+:$PATH}
 
