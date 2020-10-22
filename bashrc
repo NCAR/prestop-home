@@ -145,6 +145,14 @@ export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/ConfigMaster
 export CVSROOT=:pserver:prestop@cvs.rap.ucar.edu:/cvs
 
 
+# check if there is a machine specific env file
+hn=$(hostname -s)
+hfile=$HOME/.needed_env_vars.${hn}.sh
+if [ -f $hfile ]; then
+   . $hfile
+fi
+
+
 
 # If not running interactively, don't do anything
 case $- in

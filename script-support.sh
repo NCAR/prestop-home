@@ -38,6 +38,17 @@ install_file() {
     
 }
     
+
+#########################################################################
+# Usage: install a file and backup an existing file, fails silently if $1 doesn't exist
+# Example: safe_install_file $SCRIPT_DIR/bashrc ~/.bashrc
+safe_install_file() {
+   if [ -f $1 ]; then
+       install_file $1 $2
+   fi
+}
+    
+
 #########################################################################
 # Usage: helper functions to smartly add to path
 # Example: PATH=$(path_append $PATH /my/bin)

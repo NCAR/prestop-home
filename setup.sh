@@ -14,6 +14,15 @@ install_file $SCRIPT_DIR/bashrc ~/.bashrc
 install_file $SCRIPT_DIR/ssh-help.sh ~/.ssh-help.sh
 install_file $SCRIPT_DIR/needed_env_vars.RAP.sh ~/.needed_env_vars.RAP.sh
 
+# check if there is a machine specific env file
+hn=$(hostname -s)
+hfile1=$SCRIPT_DIR/needed_env_vars.${hn}.sh
+hfile2=~/.needed_env_vars.${hn}.sh
+if [ -f $hfile1 ]; then
+   install_file $hfile1 $hfile2
+fi
+
+
 printf "\nSetup of ${HOME} completed succesfully\n"
 
 printf "\nTo use your new environment, run:\n"
