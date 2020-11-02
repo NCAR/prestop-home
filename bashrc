@@ -56,6 +56,9 @@ esac
 # Add opt git to the path
 export PATH=$(path_prepend $PATH /opt/git/bin)
 
+# add opt python3 to the path
+export PATH=$(path_prepend $PATH /opt/python3/bin)
+
 # Add rap binaries
 export PATH=/rap/bin${PATH:+:$PATH}
 
@@ -140,6 +143,14 @@ export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}${HOME}/git/ConfigMaster
 
 # for CVS
 export CVSROOT=:pserver:prestop@cvs.rap.ucar.edu:/cvs
+
+
+# check if there is a machine specific env file
+hn=$(hostname -s)
+hfile=$HOME/.needed_env_vars.${hn}.sh
+if [ -f $hfile ]; then
+   . $hfile
+fi
 
 
 
