@@ -49,25 +49,26 @@ fi
 
 centennial-prestop() {
 if is_os_darwin; then
-   /usr/local/ossh/bin/ssh prestop@centennial.arl.hpc.mil
+   /usr/local/ossh/bin/ssh prestop@centennial-4dwx.arl.hpc.mil
 else
-    /usr/bin/ssh prestop@centennial.arl.hpc.mil
+    /usr/bin/ssh prestop@centennial-4dwx.arl.hpc.mil
 fi
 }
 
 centennial-test() {
 if is_os_darwin; then
-   /usr/local/ossh/bin/ssh atectest@centennial11.arl.hpc.mil
+   /usr/local/ossh/bin/ssh atectest@centennial-4dwx.arl.hpc.mil
 else
-    /usr/bin/ssh atectest@centennial11.arl.hpc.mil
+    /usr/bin/ssh atectest@centennial-4dwx.arl.hpc.mil
 fi
 }
 
+# centeniall 21
 centennial() {
 if is_os_darwin; then
-   /usr/local/ossh/bin/ssh atec4dwx@centennial11.arl.hpc.mil
+   /usr/local/ossh/bin/ssh atec4dwx@centennial-4dwx.arl.hpc.mil
 else
-    /usr/bin/ssh atec4dwx@centennial11.arl.hpc.mil
+    /usr/bin/ssh atec4dwx@centennial-4dwx.arl.hpc.mil
 fi
 }
 
