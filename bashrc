@@ -118,6 +118,8 @@ else
 
   ######  NON-MAC section  ##
   ############################
+  PATH=$(path_prepend $PATH /usr/local/sbin )
+
 
 # if we don't already have _cvs defined, try to define it.
   if  ! declare -F | grep _cvs >& /dev/null; then
