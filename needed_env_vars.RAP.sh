@@ -37,8 +37,8 @@ export CVSROOT=:pserver:prestop@cvs:/cvs
 
 # shared installed libraries and bins
 
-#export RAP_MAKE_INC_DIR=$RAP_TOP_DIR/make_include
-export RAP_MAKE_INC_DIR=$HOME/make_include
+export RAP_MAKE_INC_DIR=$RAP_TOP_DIR/make_include
+#export RAP_MAKE_INC_DIR=$HOME/make_include
 export RAP_MAKE_BIN_DIR=$RAP_TOP_DIR/make_bin
 export RAP_SHARED_INC_DIR=$RAP_TOP_DIR/include
 export RAP_SHARED_LIB_DIR=$RAP_TOP_DIR/lib
