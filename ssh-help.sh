@@ -112,21 +112,6 @@ thyme() {
     /usr/bin/ssh prestop@thyme.rap.ucar.edu
 }
 
-fip-faa() {
-    /usr/bin/ssh fip-faa@sonbef.rap.ucar.edu
-}
-
-cip-faa() {
-    /usr/bin/ssh cip-faa@sonbef.rap.ucar.edu
-}
-
-fip-dev() {
-    /usr/bin/ssh fip-dev@sonbef.rap.ucar.edu
-}
-
-cip-dev() {
-    /usr/bin/ssh cip-dev@sonbef.rap.ucar.edu
-}
 
 curry() {
     /usr/bin/ssh prestop@curry.rap.ucar.edu
@@ -154,6 +139,14 @@ raneb() {
 
 huni() {
     /usr/bin/ssh prestop@huni.rap.ucar.edu
+}
+
+mizu() {
+    /usr/bin/ssh prestop@mizu.rap.ucar.edu
+}
+
+djoser() {
+    /usr/bin/ssh prestop@djoser.rap.ucar.edu
 }
 
 floyd() {
