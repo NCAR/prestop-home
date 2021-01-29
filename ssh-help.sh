@@ -145,6 +145,10 @@ mizu() {
     /usr/bin/ssh prestop@mizu.rap.ucar.edu
 }
 
+horus() {
+    /usr/bin/ssh prestop@horus.rap.ucar.edu
+}
+
 djoser() {
     /usr/bin/ssh prestop@djoser.rap.ucar.edu
 }
@@ -253,6 +257,16 @@ fip-dev() {
 cip-dev() {
     runas cip-dev
 }
+
+
+fip-test() {
+    runas fip-test
+}
+
+cip-test() {
+    runas cip-test
+}
+
 
 iida() {
     runas iida
