@@ -141,6 +141,10 @@ huni() {
     /usr/bin/ssh prestop@huni.rap.ucar.edu
 }
 
+nikara() {
+    /usr/bin/ssh prestop@nikara.rap.ucar.edu
+}
+
 mizu() {
     /usr/bin/ssh prestop@mizu.rap.ucar.edu
 }
