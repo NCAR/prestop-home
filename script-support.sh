@@ -128,3 +128,13 @@ if [ $? = 0 ]; then
 	echo $cron_file matches the installed crontab
 fi
 }
+
+
+#########################################################################
+# get current git branch
+# usage:
+# git_branch
+# gb=`git_branch` && echo $gb
+git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
