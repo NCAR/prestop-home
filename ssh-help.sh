@@ -117,6 +117,10 @@ curry() {
     /usr/bin/ssh prestop@curry.rap.ucar.edu
 }
 
+nog() {
+    /usr/bin/ssh prestop@nog.rap.ucar.edu
+}
+
 oregano() {
     /usr/bin/ssh prestop@oregano.rap.ucar.edu
 }
@@ -159,6 +163,10 @@ djoser() {
 
 floyd() {
     /usr/bin/ssh prestop@floyd.rap.ucar.edu
+}
+
+bowie() {
+    /usr/bin/ssh prestop@bowie.rap.ucar.edu
 }
 
 ahmose() {
