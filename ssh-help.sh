@@ -29,6 +29,14 @@ else
 fi
 }
 
+narwhal() {
+if is_os_darwin; then
+  /usr/local/ossh/bin/ssh prestop@narwhal.navydsrc.hpc.mil
+else
+  /usr/bin/ssh prestop@narwhal.navydsrc.hpc.mil
+fi
+}
+
 excalibur() {
 if is_os_darwin; then
   /usr/local/ossh/bin/ssh atec4dwx@excalibur-4dwx.arl.hpc.mil
